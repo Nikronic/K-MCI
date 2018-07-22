@@ -2,7 +2,7 @@
 """
 Created on Thu Apr 19 11:51:08 2018
 
-@author: Mohammad Doosti Lakhani
+@author: Mohammad Doosti Lakhani (nikan.doosti@outlook.com), Hamed Faraji(h.m.d.faraji.h.m.d@gmail.com)
 """
 
 
