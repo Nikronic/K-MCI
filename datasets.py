@@ -67,4 +67,10 @@ def iris():
     y = labelencoder_y.transform(y)  # 0 for 'Iris-setosa', 1 for 'Iris-versicolor', 2 for 'Iris-virginica'
     return (x,y)
 
+def vowel():
+    # importing dataset
+    dataset = pd.read_csv(path+'vowel.csv', names= ['vowel','type 1 frq','type 2 frq','type 3 frq'])
+    x = dataset.iloc[:,1:].values # features
+    y = dataset.iloc[:,0].values # target values
+    return (x,y)
 
