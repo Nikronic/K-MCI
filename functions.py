@@ -8,7 +8,7 @@ Created on Thu Apr 19 11:51:08 2018
 
 """ importing neccassry libraries """
 import numpy as np
-
+from sklearn.cluster import KMeans
  
 
 class Candidate:
@@ -42,13 +42,17 @@ def initialize(c, psi, r, ep, n, t):
     return 0
 
 
-"""just test """
-
 """ we calculate the probability of each candidate based on its fitness.
-    all candidates = array of all candidates 
+    all_candidates = array of all candidates 
     candidate = the candidate which we want its probability"""
 def probability(candidate,all_candidates):
     return (1/candidate.fitness)/(1/(np.sum([x.fitness for x in all_candidates])))
 
 def fitness(candidate):
     return 
+
+# Fitting K-Means to a dataset
+def doKmeans(x,clusters_count):
+    kmeans = KMeans(n_clusters = clusters_count, init = 'k-means++', random_state = 42)
+    y_predict_kmeans = kmeans.fit_predict(x)
+    return y_predict_kmeans
