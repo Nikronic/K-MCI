@@ -11,7 +11,6 @@ Created on Mon Jul 23 01:34:55 2018
 
 # importing necessary libraries
 import numpy as np
-import matplotlib.pyplot as plt
 import pandas as pd
 
 
@@ -27,7 +26,6 @@ def bcw():
                                    'Uniformity of Cell Shape','Marginal Adhesion','Single Epithelial',
                                    'Bare Nuclei','Bland Chromatin','Normal Nucleoli','Mitoses','Class'])
     dataset= dataset.replace(to_replace='?',value=np.nan)
-    #dataset = dataset[dataset.'Bare Nuclei' != np.nan]
     dataset = dataset.dropna(axis =0) # resolving missing values
     dataset = dataset.astype('int64') # casting string valued column to int64
     x = dataset.iloc[:,:-1].values # features
@@ -81,7 +79,3 @@ def wine():
     x = dataset.iloc[:,1:].values # features
     y = dataset.iloc[:,0].values # target values
     return (x,y)
-
-tempx,tempy = bcw()
-
-print(tempx[8])
