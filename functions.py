@@ -42,7 +42,7 @@ def initialize(c, psi, r, ep, n, t):
     return 0
 
 
-
+"""just test """
 
 """ we calculate the probability of each candidate based on its fitness.
     all candidates = array of all candidates 
@@ -50,4 +50,5 @@ def initialize(c, psi, r, ep, n, t):
 def probability(candidate,all_candidates):
     return (1/candidate.fitness)/(1/(np.sum([x.fitness for x in all_candidates])))
 
-
+def fitness(candidate):
+    return 

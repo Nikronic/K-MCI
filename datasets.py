@@ -82,4 +82,6 @@ def wine():
     y = dataset.iloc[:,0].values # target values
     return (x,y)
 
+tempx,tempy = bcw()
 
+print(tempx[8])
