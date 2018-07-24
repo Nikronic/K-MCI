@@ -9,6 +9,7 @@ Created on Thu Apr 19 11:51:08 2018
 """ importing neccassry libraries """
 import numpy as np
 from sklearn.cluster import KMeans
+from datasets import wine
  
 
 class Candidate:
@@ -48,8 +49,13 @@ def initialize(c, psi, r, ep, n, t):
 def probability(candidate,all_candidates):
     return (1/candidate.fitness)/(1/(np.sum([x.fitness for x in all_candidates])))
 
-def fitness(candidate):
-    return 
+def fitness():
+    return
+
+def interval(input_array) :
+    Maxes = np.max(input_array,axis=0)
+    Mins  = np.min(input_array,axis=0)
+    return (Maxes,Mins)
 
 # Fitting K-Means to a dataset
 def doKmeans(x,clusters_count):
