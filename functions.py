@@ -10,6 +10,7 @@ Created on Thu Apr 19 11:51:08 2018
 import numpy as np
 from sklearn.cluster import KMeans
 from datasets import wine
+import random
  
 
 class Candidate:
@@ -57,6 +58,15 @@ def interval(input_array) :
     Mins  = np.min(input_array,axis=0)
     return (Maxes,Mins)
 
+def mutation(candidate_array):
+    for x in range(len(candidate_array)):
+        a = np.full(len(candidate_array), 1/(len(candidate_array)-1))
+        a[x] = 0
+        temp = np.random.choice(len(candidate_array), 3, replace = False, p=a)
+        print(temp)
+
+a = [5,5,5,6,0,58]
+mutation(a)
 # Fitting K-Means to a dataset
 def doKmeans(x,clusters_count):
     kmeans = KMeans(n_clusters = clusters_count, init = 'k-means++', random_state = 42)
