@@ -10,7 +10,6 @@ Created on Thu Apr 19 11:51:08 2018
 import numpy as np
 from sklearn.cluster import KMeans
 from datasets import wine
-import random
  
 
 class Candidate:
@@ -63,9 +62,13 @@ def mutation(candidate_array):
         a = np.full(len(candidate_array), 1/(len(candidate_array)-1))
         a[x] = 0
         temp = np.random.choice(len(candidate_array), 3, replace = False, p=a)
-        print(temp)
+        for i in range(len(candidate_array[0].features)):
+        Mutant_candidate[x].features[i][0] = candidate_array[temp[0]].features[i][0]+ random.random()*(candidate_array[temp[1]].features[i][0] - candidate_array[temp[2]].features[i][0])
 
-a = [5,5,5,6,0,58]
+
+
+
+a = [[5,3],[3.5,5],[5.25,5.1],[6,3],[1.5,0],[2.76,8]]
 mutation(a)
 # Fitting K-Means to a dataset
 def doKmeans(x,clusters_count):
