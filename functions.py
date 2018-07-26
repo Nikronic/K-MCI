@@ -35,15 +35,22 @@ def sampling_interval(input_array):
     return (Maxes,Mins)
 
 def mutation(candidate_array):
+    Y = random.random()
+    New_candidate = Mutant_candidate = Trial_candidate = candidate_array 
     for x in range(len(candidate_array)):
         a = np.full(len(candidate_array), 1/(len(candidate_array)-1))
         a[x] = 0
         temp = np.random.choice(len(candidate_array), 3, replace = False, p=a)
         for i in range(len(candidate_array[0].features)):
             Mutant_candidate[x].features[i][0] = candidate_array[temp[0]].features[i][0]+ random.random()*(candidate_array[temp[1]].features[i][0] - candidate_array[temp[2]].features[i][0])
+            if random.random() < Y:
+                Trial_candidate[x].features[i][0] = Mutant_candidate[x].features[i][0] #Trial & Mutant must be copy of same candidate
+        if fitness(candidate_array[x]) > fitness(Trial_candidate[x]):
+            New_candidate[x] = Trial_candidate[x]
+    return New_candidate
 
-
-
+def fitness(sample):
+    return True
 
 a = [[5,3],[3.5,5],[5.25,5.1],[6,3],[1.5,0],[2.76,8]]
 mutation(a)
