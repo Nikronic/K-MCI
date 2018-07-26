@@ -9,26 +9,22 @@ Created on Thu Apr 19 11:51:08 2018
 """ importing neccassry libraries """
 import numpy as np
 from sklearn.cluster import KMeans
-from datasets import wine
+import datasets
  
 
-def initialize(c, psi, r, ep, n, t):
-    all_candidates = np.empty(c,dtype='object')    
-    return 0
+def roulette_wheel_selection():
+    
 
+def probability(inertia_array,i):
+    return (1/inertia_array[i])/(1/(np.sum(inertia_array)))
 
-""" we calculate the probability of each candidate based on its fitness.
-    all_candidates = array of all candidates 
-    candidate = the candidate which we want its probability"""
-def probability(candidate,all_candidates):
-    return (1/candidate.fitness)/(1/(np.sum([x.fitness for x in all_candidates])))
+# we get inertia_ with kmean and among all inertia_ of all candidate we choose minimum as best 
+def best_fitness(array_of_inertia):
+    return np.amin(array_of_inertia)
 
-def fitness():
-    return
-
-def interval(input_array) :
-    Maxes = np.max(input_array,axis=0)
-    Mins  = np.min(input_array,axis=0)
+def sampling_interval(input_array):
+    Maxes = np.amax(input_array,axis=0)
+    Mins  = np.amin(input_array,axis=0)
     return (Maxes,Mins)
 
 def mutation(candidate_array):
@@ -47,6 +43,6 @@ mutation(a)
 
 # Fitting K-Means to a dataset
 def doKmeans(x,clusters_count):
-    kmeans = KMeans(n_clusters = clusters_count, init = 'k-means++', random_state = 42)
+    kmeans = KMeans(n_clusters = clusters_count, init = 'k-means++', random_state = 0)
     y_predict_kmeans = kmeans.fit_predict(x)
-    return y_predict_kmeans
+    return (y_predict_kmeans,kmeans.cluster_centers_,kmeans.inertia_)

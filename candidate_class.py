@@ -12,16 +12,16 @@ the structure of answer based on cluster centers and other important parameters 
 
 # importing libraries
 import random
+    
 
-
-class Candidate:
-    def __init__(self,clusters,centers,sampling_interval, variation_count, random_number,fitness=-1):
+class Candidate:    
+    def __init__(self,clusters,sampling_interval, variation_count,fitness=-1):
         self.clusters = clusters
         self.sampling_interval = sampling_interval 
-        self.variation_count = variation_count 
-        self.random_number = random_number
+        self.variation_count = variation_count
+        self.random_number
         self.fitness = fitness
-        self.centers = centers
+        self.centers
         
     def random_number(self):
         self.random_number = random.random()
