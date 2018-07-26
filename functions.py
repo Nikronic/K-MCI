@@ -9,11 +9,18 @@ Created on Thu Apr 19 11:51:08 2018
 """ importing neccassry libraries """
 import numpy as np
 from sklearn.cluster import KMeans
+import random
 import datasets
  
 
-def roulette_wheel_selection():
-    
+def roulette_wheel_selection(inertia_array):
+    maximum = np.sum(inertia_array)
+    pick = random.uniform(0, maximum)
+    current = 0
+    for fitness in inertia_array:
+        current += fitness
+        if current > pick:
+            return fitness
 
 def probability(inertia_array,i):
     return (1/inertia_array[i])/(1/(np.sum(inertia_array)))
