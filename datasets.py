@@ -30,7 +30,7 @@ def bcw():
     dataset = dataset.astype('int64') # casting string valued column to int64
     x = dataset.iloc[:,:-1].values # features
     y = dataset.iloc[:,-1].values # target values
-    return (x,y)
+    return (x,y,dataset)
 
 
 def cmc():
@@ -41,7 +41,7 @@ def cmc():
                                                  "Standard-of-living index","Media exposure","Contraceptive method used"])
     x = dataset.iloc[:,:-1].values # features
     y = dataset.iloc[:,-1].values # target values
-    return (x,y)
+    return (x,y,dataset)
 
 
 def glass():
@@ -49,7 +49,7 @@ def glass():
     dataset = pd.read_csv(path+'glass.csv', names= ['Id','refractive index','Magnesium','Aluminum','Silicon','Potassium','Calcium','Barium','Iron','glass'])
     x = dataset.iloc[:,:-1].values # features
     y = dataset.iloc[:,-1].values # target values
-    return (x,y)
+    return (x,y,dataset)
 
 
 def iris():
@@ -63,7 +63,7 @@ def iris():
     labelencoder_y = LabelEncoder()
     labelencoder_y = labelencoder_y.fit(y)
     y = labelencoder_y.transform(y)  # 0 for 'Iris-setosa', 1 for 'Iris-versicolor', 2 for 'Iris-virginica'
-    return (x,y)
+    return (x,y,dataset)
 
 
 def vowel():
@@ -71,11 +71,11 @@ def vowel():
     dataset = pd.read_csv(path+'vowel.csv', names= ['vowel','type 1 frq','type 2 frq','type 3 frq'])
     x = dataset.iloc[:,1:].values # features
     y = dataset.iloc[:,0].values # target values
-    return (x,y)
+    return (x,y,dataset)
 
 def wine():
     # importing dataset
     dataset = pd.read_csv(path+'wine.csv', names= ['class','Alcohol','Malic acid','Ash','Alcalinity of ash','Magnesium','Total phenols','Flavanoids','Nonflavanoid phenols','Proanthocyanins','Color intensity','Hue','OD280/OD315','Proline'])
     x = dataset.iloc[:,1:].values # features
     y = dataset.iloc[:,0].values # target values
-    return (x,y)
+    return (x,y,dataset)
