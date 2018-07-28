@@ -41,10 +41,11 @@ def mutation(candidate_array):
         a = np.full(len(candidate_array), 1/(len(candidate_array)-1))
         a[x] = 0
         temp = np.random.choice(len(candidate_array), 3, replace = False, p=a)
-        for i in range(len(candidate_array[0].features)):
-            Mutant_candidate[x].features[i][0] = candidate_array[temp[0]].features[i][0]+ random.random()*(candidate_array[temp[1]].features[i][0] - candidate_array[temp[2]].features[i][0])
-            if random.random() < Y:
-                Trial_candidate[x].features[i][0] = Mutant_candidate[x].features[i][0] #Trial & Mutant must be copy of same candidate
+        for i in range(len(candidate_array[0].centers)):
+            for j in range(len(candidate_array[0].centers[0])):
+                Mutant_candidate[x].features[i][j] = candidate_array[temp[0]].features[i][j]+ random.random()*(candidate_array[temp[1]].features[i][j] - candidate_array[temp[2]].features[i][j])
+                if random.random() < Y:
+                    Trial_candidate[x].features[i][j] = Mutant_candidate[x].features[i][j] #Trial & Mutant must be copy of same candidate
         if fitness(candidate_array[x]) > fitness(Trial_candidate[x]):
             New_candidate[x] = Trial_candidate[x]
     return New_candidate
