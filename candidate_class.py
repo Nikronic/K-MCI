@@ -2,7 +2,7 @@
 """
 Created on Thu Jul 26 01:11:10 2018
 
-@author: Mohammad Doosti Lakhani
+@author: Mohammad Doosti Lakhani (nikan.doosti@outlook.com), Hamed Faraji(h.m.d.faraji.h.m.d@gmail.com)
 """
 """
 This is the implementatino of Candidate class. Candidate class is the most important class because it has
@@ -21,12 +21,10 @@ class Candidate:
         self.variation_count = variation_count
         self.random_number
         self.fitness = fitness
-        self.centers
+        self.centers = None
         
     def random_number(self):
         self.random_number = random.random()
         
     #def describe(self):
         #print("Candidate with features={}, fitness={}".format(self.clusters.describe(),self.fitness))
-    
-    
