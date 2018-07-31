@@ -41,11 +41,11 @@ def mutation(candidate_array):
         a = np.full(len(candidate_array), 1/(len(candidate_array)-1))
         a[x] = 0
         temp = np.random.choice(len(candidate_array), 3, replace = False, p=a)
-        for i in range(len(candidate_array[0].centers)):
-            for j in range(len(candidate_array[0].centers[0])):
-                Mutant_candidate[x].features[i][j] = candidate_array[temp[0]].features[i][j]+ random.random()*(candidate_array[temp[1]].features[i][j] - candidate_array[temp[2]].features[i][j])
+        for i in range(len(candidate_array[0].sampling_interval)):
+            for j in range(len(candidate_array[0].sampling_interval[0])):
+                Mutant_candidate[x].sampling_interval[i][j] = candidate_array[temp[0]].sampling_interval[i][j]+ random.random()*(candidate_array[temp[1]].sampling_interval[i][j] - candidate_array[temp[2]].sampling_interval[i][j])
                 if random.random() < Y:
-                    Trial_candidate[x].features[i][j] = Mutant_candidate[x].features[i][j] #Trial & Mutant must be copy of same candidate
+                    Trial_candidate[x].sampling_interval[i][j] = Mutant_candidate[x].sampling_interval[i][j] #Trial & Mutant must be copy of same candidate
         if fitness(candidate_array[x]) > fitness(Trial_candidate[x]):
             New_candidate[x] = Trial_candidate[x]
     return New_candidate
@@ -60,4 +60,4 @@ mutation(a)
 def doKmeans(x,clusters_count):
     kmeans = KMeans(n_clusters = clusters_count, init = 'k-means++', random_state = 0)
     y_predict_kmeans = kmeans.fit_predict(x)
-    return (y_predict_kmeans,kmeans.cluster_centers_,kmeans.inertia_)
+    return (y_predict_kmeans,kmeans.cluster_sampling_interval_,kmeans.inertia_)
