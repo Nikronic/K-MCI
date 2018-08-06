@@ -8,3 +8,8 @@ All datasets are from UCI Machine Learning Repository (Bache & Lichman, 2013). B
 Notice: the default value in Kmean algorithm of sklearn library is 10.
 Notice: In this article I found best value is 20 to 50. So I selected the maximum.
 https://static.googleusercontent.com/media/research.google.com/vi//pubs/archive/42853.pdf
+
+# Issue 2 (No talk about Standardization or Normalization)
+Notice: If you look at the datasets, we know we have to use some standardization
+Notice: Because there is no information about how to standard data, we select which give is higher fitness compare to article.
+Notice: We used this standardization method 
