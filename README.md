@@ -13,5 +13,6 @@ https://static.googleusercontent.com/media/research.google.com/vi//pubs/archive/
 
 # Issue 2 (No talk about Standardization or Normalization)
 Notice: If you look at the datasets, we know we have to use some standardization
-Notice: Because there is no information about how to standard data, we select which give is higher fitness compare to article.
+Notice: Because there is no information about how to standard data, we select which give true fitness compare to article.
+Article didn't standardize data and use them without preprocessing.
 Notice: We used this standardization method 
